@@ -25,12 +25,14 @@ def binary_search_first(numbers, target):
         return result + middle + 1
 
 
-print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 2))
-# should print 2 (the index of the ‘first’ target number ‘5’ shows up)
-print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 5))
-# should print 2 (since it can’t find number 3, return the index of ‘the smallest number larger than 3', that is, the index of the ‘first’ number 5)
-print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 3))
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 2))
+# # should print 2 (the index of the ‘first’ target number ‘5’ shows up)
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 5))
+# # should print 2 (since it can’t find number 3, return the index of ‘the smallest number larger than 3', that is, the index of the ‘first’ number 5)
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 3))
 
-print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 ], 13))
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 ], 13))
 
-print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 , 16 , 17 , 18], 15))
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 , 16 , 17 , 18], 15))
+
+
