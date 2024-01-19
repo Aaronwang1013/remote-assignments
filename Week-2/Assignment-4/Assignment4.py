@@ -1,9 +1,9 @@
 def count(input):
     count_dict = {}
     for i in range(len(input)):
-        count_dict[input[i]] = 0
-    for i in range(len(input)):
-        if input[i] in count_dict:
+        if input[i] not in count_dict:
+            count_dict[input[i]] = 1
+        else: 
             count_dict[input[i]] += 1
     return count_dict
 
@@ -16,9 +16,9 @@ print(count(input1))  # should print {'a': 3, 'b': 1, 'c': 2, 'x': 1}
 def group_by_key(input):
     count_dict = {}
     for i in range(len(input)):
-        count_dict[input[i]['key']] = 0
-    for i in range(len(input)):
-        if input[i]['key'] in count_dict:
+        if input[i]['key'] not in count_dict:
+            count_dict[input[i]['key']] = input[i]['value']
+        else:
             count_dict[input[i]['key']] += input[i]['value']
     return count_dict
 

@@ -2,14 +2,13 @@ def binary_search_first(numbers, target):
     """
     think of base case and recursive case
     """
-    if not numbers:
-        return None
-    if target > numbers[-1]:
-        return None
-    middle = len(numbers) // 2
     # if target not in number, plus 1 for the target and do it again
     if target not in numbers:
         return binary_search_first(numbers, target+1)
+    # if target is larger than the biggest value in list, return None
+    if target > numbers[-1]:
+        return None
+    middle = len(numbers) // 2 
     if numbers[middle] == target:
         # check if there is any identical value
         for i in numbers[:middle]:
