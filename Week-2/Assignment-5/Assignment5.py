@@ -5,15 +5,14 @@ def binary_search_first(numbers, target):
     # if target is larger than the biggest value in list, return None
     if target > numbers[-1]:
         return None
-    # if target not in number, plus 1 for the target and do it again
-    if target not in numbers:
-        return binary_search_first(numbers, target+1)
-    middle = len(numbers) // 2 
+    middle = len(numbers) // 2
+    # the list will only have one element if no match at all
+    if len(numbers) == 1:
+        return middle
     if numbers[middle] == target:
-        # check if there is any identical value
-        for i in numbers[:middle]:
-            if numbers[i] == target:
-                return i
+        # check if there is any identical value (從middle往後推)
+        while numbers[middle] == numbers[middle - 1]:
+            middle -= 1
         return middle
     elif numbers[middle] > target:
         numbers = numbers[:middle]
@@ -25,10 +24,12 @@ def binary_search_first(numbers, target):
         # add 1 is considering the start index of the right part
         return result + middle + 1
 
-
 # should print 1 (the index of the target number ‘2’)
 print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 2))
 # should print 2 (the index of the ‘first’ target number ‘5’ shows up)
 print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 5))
 # should print 2 (since it can’t find number 3, return the index of ‘the smallest number larger than 3', that is, the index of the ‘first’ number 5)
 print(binary_search_first([1, 2, 5, 5, 5, 6, 7], 3))
+
+print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 , 16], 13))
+# print(binary_search_first([1, 2, 5, 5, 5, 6, 7 , 8 , 9 , 10 , 12 , 14 ], 13))
