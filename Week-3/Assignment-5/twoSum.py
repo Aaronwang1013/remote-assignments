@@ -1,6 +1,7 @@
 def twoSum(nums , target):
     ## use hash table
     temp = {}
+    ##j will point to the number(value) and i will point to the index (key)
     for i, j in enumerate(nums):
         if (target - nums[i]) in temp:
             return [temp[target - j] , i]     

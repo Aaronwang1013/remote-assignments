@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
+#GET for the sum.html page, POST for submit the number
 @app.route('/sum.html', methods=['GET','POST'])
 def sum():
     return render_template("sum.html")
