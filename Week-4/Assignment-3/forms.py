@@ -4,9 +4,8 @@ from wtforms.validators import (DataRequired, ValidationError, Email)
 
 # import db
 from models import Database
+
 # form: form self, field: argument
-
-
 def email_exists(form, field):
     cursor = Database()
     query = "SELECT id FROM user WHERE email =%s"
