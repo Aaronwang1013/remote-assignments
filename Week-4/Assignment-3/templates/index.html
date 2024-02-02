@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% from 'macros.html' import render_field %}
+{% block content %}
+    <!-- Fields are from WTform, responsible for rendering and data conversion. 
+    They delegate to validators for data validation. -->
+<h1>This is home page</h1>
+<form method="POST" action="" class="signinform">
+    {{ signinform.hidden_tag() }}
+    {% for field in signinform %}
+        <div class="field">
+            {{ field(placeholder=field.label.text) }}
+        </div>
+    {% endfor %}
+    <button type="submit" id="signin-submit">Sign In</button>
+</form>
+
+<br>
+<br>
+
+<form method="POST" action="" class="signupform">
+    {{ signupform.hidden_tag() }}
+    {% for field in signupform %}
+        <div class="field">
+            {{ field(placeholder=field.label.text) }}
+        </div>
+    {% endfor %}
+    <button type="submit" id="signiup-submit">Sign Up</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+                {{ messages[0] }}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% endblock %}
