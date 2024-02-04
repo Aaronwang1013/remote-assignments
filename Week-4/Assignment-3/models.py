@@ -1,18 +1,14 @@
 # DB connection
 import pymysql
-from dotenv import load_dotenv
-import os
 from flask_bcrypt import generate_password_hash
 
-load_dotenv()
 
-password = os.getenv("PASSWORD")
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": password,
-    "db": "assignment",
-}
+##configuration
+from configparser import ConfigParser
+
+config_object = ConfigParser()
+config_object.read("config.ini")
+DB_CONFIG = config_object["DB_CONFIG"]
 
 # DB class (will be a database connection whenever initialize)
 class Database:

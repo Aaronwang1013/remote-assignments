@@ -6,16 +6,18 @@ from flask import url_for
 from flask import flash
 from flask import request
 from flask_bcrypt import check_password_hash
-from dotenv import load_dotenv
-
 import forms
 import models
+from configparser import ConfigParser
+
+
 
 app = Flask(__name__)
-
-# for csrf
-load_dotenv()
-app.secret_key = os.getenv("SECRET_KEY")
+# for csrf configuration
+config_object = ConfigParser()
+config_object.read("config.ini")
+SECRET_KEY = config_object["SECRET_KEY"]
+app.secret_key = SECRET_KEY["secret_key"]
 
 
 # home page, for both sign and sign up
